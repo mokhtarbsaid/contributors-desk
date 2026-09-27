@@ -101,6 +101,7 @@ final class Contributor_Desk_Application_Form {
 			$this->errors['email'] = __( 'Please enter a valid email address.', 'contributors-desk' );
 		} elseif ( ! $user->exists() && email_exists( $values['email'] ) ) {
 			$this->errors['email'] = sprintf(
+				/* translators: %s: login URL. */
 				__( 'An account with this email already exists. Please <a href="%s">log in</a> first, then apply.', 'contributors-desk' ),
 				esc_url( wp_login_url( $this->current_url() ) )
 			);

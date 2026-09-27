@@ -130,7 +130,7 @@ Implementation notes:
 - Output full files, not partial snippets.
 - No added code comments, except required plugin headers.
 - Human-like, readable code patterns; avoid generated-looking boilerplate.
-- Translator comments (`/* translators: */`) are the one exception to consider before any WordPress.org submission, since Plugin Check flags their absence on strings with placeholders. Ask the user before adding them.
+- Translator comments (`/* translators: */`) are the one exception to the no-comments rule: always add one directly above every translatable string that contains placeholders, since Plugin Check flags their absence.
 - Do not use em dashes anywhere, including readme, UI strings and docs.
 - Minimum requirements: WordPress 6.2, PHP 7.4.
 - Security: nonces and capability checks on every action, sanitize input, escape output, `$wpdb->prepare()` for every query.

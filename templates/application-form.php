@@ -26,12 +26,18 @@ $cdesk_values = $state['values'];
 			</div>
 
 			<p class="cdesk-application__intro">
-				<?php echo esc_html( sprintf( __( 'Apply to join as: %s', 'contributors-desk' ), $state['role_label'] ) ); ?>
+				<?php
+				/* translators: %s: contributor role name. */
+				echo esc_html( sprintf( __( 'Apply to join as: %s', 'contributors-desk' ), $state['role_label'] ) );
+				?>
 			</p>
 
 			<?php if ( $state['user'] ) : ?>
 				<p class="cdesk-application__account">
-					<?php echo esc_html( sprintf( __( 'You are applying with your account %1$s (%2$s).', 'contributors-desk' ), $state['user']->display_name, $state['user']->user_email ) ); ?>
+					<?php
+					/* translators: %1$s: user display name, %2$s: user email address. */
+					echo esc_html( sprintf( __( 'You are applying with your account %1$s (%2$s).', 'contributors-desk' ), $state['user']->display_name, $state['user']->user_email ) );
+					?>
 				</p>
 			<?php else : ?>
 				<p class="cdesk-application__field<?php echo isset( $cdesk_errors['name'] ) ? ' has-error' : ''; ?>">

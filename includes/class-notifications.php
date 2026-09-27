@@ -30,22 +30,28 @@ final class Contributor_Desk_Notifications {
 		Contributor_Desk_Mailer::to_admin(
 			static function () use ( $application ) {
 				$lines = array(
+					/* translators: %s: contributor role name. */
 					sprintf( __( 'A new application to join as "%s" is waiting for your review.', 'contributors-desk' ), Contributor_Desk_Roles::instance()->display_label() ),
 					'',
+					/* translators: %s: applicant name. */
 					sprintf( __( 'Name: %s', 'contributors-desk' ), $application['name'] ),
+					/* translators: %s: applicant email address. */
 					sprintf( __( 'Email: %s', 'contributors-desk' ), $application['email'] ),
 				);
 
 				if ( $application['website'] ) {
+					/* translators: %s: applicant website URL. */
 					$lines[] = sprintf( __( 'Website: %s', 'contributors-desk' ), $application['website'] );
 				}
 
 				$lines[] = '';
 				$lines[] = wp_trim_words( $application['message'], 60 );
 				$lines[] = '';
+				/* translators: %s: URL of the application review screen. */
 				$lines[] = sprintf( __( 'Review the application: %s', 'contributors-desk' ), Contributor_Desk_Applications::review_url( $application['id'] ) );
 
 				return array(
+					/* translators: %s: applicant name. */
 					'subject' => sprintf( __( 'New application from %s', 'contributors-desk' ), $application['name'] ),
 					'body'    => implode( "\n", $lines ),
 				);
@@ -74,9 +80,11 @@ final class Contributor_Desk_Notifications {
 			$user,
 			static function () use ( $user, $password_url ) {
 				$lines = array(
+					/* translators: %s: user display name. */
 					sprintf( __( 'Hello %s,', 'contributors-desk' ), $user->display_name ),
 					'',
 					sprintf(
+						/* translators: %1$s: site name, %2$s: contributor role name. */
 						__( 'Your application to join %1$s as "%2$s" has been approved.', 'contributors-desk' ),
 						wp_specialchars_decode( get_bloginfo( 'name' ), ENT_QUOTES ),
 						Contributor_Desk_Roles::instance()->display_label()
@@ -85,6 +93,7 @@ final class Contributor_Desk_Notifications {
 				);
 
 				if ( $password_url ) {
+					/* translators: %s: username. */
 					$lines[] = sprintf( __( 'Your username: %s', 'contributors-desk' ), $user->user_login );
 					$lines[] = __( 'Set your password using this link:', 'contributors-desk' );
 					$lines[] = $password_url;
@@ -94,6 +103,7 @@ final class Contributor_Desk_Notifications {
 				}
 
 				$lines[] = '';
+				/* translators: %s: support email address. */
 				$lines[] = sprintf( __( 'If you have any questions, contact us at %s.', 'contributors-desk' ), Contributor_Desk_Settings::support_email() );
 
 				return array(
@@ -116,9 +126,11 @@ final class Contributor_Desk_Notifications {
 			$application['locale'],
 			static function () use ( $application, $reason ) {
 				$lines = array(
+					/* translators: %s: applicant name. */
 					sprintf( __( 'Hello %s,', 'contributors-desk' ), $application['name'] ),
 					'',
 					sprintf(
+						/* translators: %s: site name. */
 						__( 'Thank you for applying to join %s. After reviewing your application, we are unable to approve it at this time.', 'contributors-desk' ),
 						wp_specialchars_decode( get_bloginfo( 'name' ), ENT_QUOTES )
 					),
@@ -126,6 +138,7 @@ final class Contributor_Desk_Notifications {
 					__( 'Reason:', 'contributors-desk' ),
 					$reason,
 					'',
+					/* translators: %s: support email address. */
 					sprintf( __( 'If you have any questions, contact us at %s.', 'contributors-desk' ), Contributor_Desk_Settings::support_email() ),
 				);
 

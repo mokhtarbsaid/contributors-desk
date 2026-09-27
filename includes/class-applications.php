@@ -85,6 +85,7 @@ final class Contributor_Desk_Applications {
 			self::STATUS_PENDING,
 			array(
 				'label'                     => _x( 'Pending', 'application status', 'contributors-desk' ),
+				/* translators: %s: number of applications. */
 				'label_count'               => _n_noop( 'Pending <span class="count">(%s)</span>', 'Pending <span class="count">(%s)</span>', 'contributors-desk' ),
 				'public'                    => false,
 				'protected'                 => true,
@@ -97,6 +98,7 @@ final class Contributor_Desk_Applications {
 			self::STATUS_APPROVED,
 			array(
 				'label'                     => _x( 'Approved', 'application status', 'contributors-desk' ),
+				/* translators: %s: number of applications. */
 				'label_count'               => _n_noop( 'Approved <span class="count">(%s)</span>', 'Approved <span class="count">(%s)</span>', 'contributors-desk' ),
 				'public'                    => false,
 				'protected'                 => true,
@@ -109,6 +111,7 @@ final class Contributor_Desk_Applications {
 			self::STATUS_REJECTED,
 			array(
 				'label'                     => _x( 'Rejected', 'application status', 'contributors-desk' ),
+				/* translators: %s: number of applications. */
 				'label_count'               => _n_noop( 'Rejected <span class="count">(%s)</span>', 'Rejected <span class="count">(%s)</span>', 'contributors-desk' ),
 				'public'                    => false,
 				'protected'                 => true,
@@ -546,7 +549,12 @@ final class Contributor_Desk_Applications {
 									<input type="hidden" name="action" value="<?php echo esc_attr( self::REVIEW_ACTION ); ?>">
 									<input type="hidden" name="application" value="<?php echo esc_attr( $application['id'] ); ?>">
 									<input type="hidden" name="decision" value="approve">
-									<p><?php echo esc_html( sprintf( __( 'Approving gives the applicant the "%s" role and emails them how to log in.', 'contributors-desk' ), Contributor_Desk_Roles::instance()->display_label() ) ); ?></p>
+									<p>
+									<?php
+									/* translators: %s: contributor role name. */
+									echo esc_html( sprintf( __( 'Approving gives the applicant the "%s" role and emails them how to log in.', 'contributors-desk' ), Contributor_Desk_Roles::instance()->display_label() ) );
+									?>
+									</p>
 									<?php submit_button( __( 'Approve', 'contributors-desk' ), 'primary', 'submit', false ); ?>
 								</form>
 
@@ -569,6 +577,7 @@ final class Contributor_Desk_Applications {
 									<?php
 									echo esc_html(
 										sprintf(
+											/* translators: %1$s: reviewer name, %2$s: review date. */
 											__( 'Reviewed by %1$s on %2$s.', 'contributors-desk' ),
 											$reviewer ? $reviewer->display_name : __( 'an unknown user', 'contributors-desk' ),
 											mysql2date( get_option( 'date_format' ) . ' ' . get_option( 'time_format' ), $application['reviewed_at'] )
