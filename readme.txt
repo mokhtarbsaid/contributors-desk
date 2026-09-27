@@ -1,61 +1,33 @@
-=== Starter Plugin ===
+=== Contributors Desk ===
 Contributors: mokhtarbsaid
-Tags: starter, boilerplate
-Requires at least: 5.8
-Tested up to: 7.1
+Tags: contributors, guest posts, editorial workflow, author application, moderation
+Requires at least: 6.2
+Tested up to: 6.8
 Requires PHP: 7.4
-Stable tag: 1.2.0
+Stable tag: 0.1.0
 License: GPLv2 or later
 License URI: https://www.gnu.org/licenses/gpl-2.0.html
 
-A starter plugin template for WordPress projects. Ideal for creating custom WordPress plugins with best practices.
+Vet, receive, review and hold accountable the external contributors of your site.
 
 == Description ==
 
-Starter Plugin is a simple yet robust starting point for your custom WordPress plugin development. It provides a foundation with best practices in code structure, security, and performance optimization.
-You can just replace my prefixes (Starter_Plugin_, starter-plugin, starter_plugin, STARTER_PLUGIN_) with your prefixes and continue your work.
+Contributors Desk handles the full lifecycle of external contributors, such as doctors writing for a health site, providers listed in a directory, or guest writers on a blog.
 
-Key Features:
-* Modular structure for better code organization.
-* Admin settings page with an intuitive interface.
-* Support for custom CSS/JS loading for both admin and frontend.
+* Visitors apply to join through an application form.
+* You approve or reject each application with a reason, and the applicant is notified by email.
+* Approved applicants get a dedicated contributor role.
 
-This plugin is intended for developers and those looking to kickstart their WordPress plugin projects efficiently.
+Emails are sent through `wp_mail()`. For reliable delivery, use an SMTP plugin.
 
 == Installation ==
 
-1. Upload the `starter-plugin` folder to the `/wp-content/plugins/` directory.
-2. Activate the plugin through the 'Plugins' menu in WordPress.
-3. Navigate to "Starter Plugin" in the admin menu to configure settings.
-
+1. Upload the `contributors-desk` folder to `/wp-content/plugins/`.
+2. Activate the plugin from the Plugins screen.
+3. Go to Contributors Desk > Settings.
+4. Add the `[cdesk_application_form]` shortcode to the page where visitors should apply.
 
 == Changelog ==
 
-= 1.0.0 =
-* Initial release.
-* Modular structure implemented.
-* Admin settings page added.
-* Support for custom CSS/JS enqueuing.
-
-= 1.2.0 =
-* Some security upgrades.
-
-
-== Upgrade Notice ==
-
-= 1.0.0 =
-This is the first release of Starter Plugin. No upgrade instructions at this time.
-
-= 1.2.0 =
-This is the second release of Starter Plugin contains some fixes.
-
-== Frequently Asked Questions ==
-
-= What PHP version is required? =
-This plugin requires PHP 7.4 or higher.
-
-= What is this plugin for? =
-This plugin serves as a starting template for custom WordPress plugins.
-
-= Can I use this in a production environment? =
-Yes, but you may need to customize the code to fit your specific requirements.
+= 0.1.0 =
+* Initial development version.
