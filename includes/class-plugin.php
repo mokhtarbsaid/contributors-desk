@@ -19,6 +19,9 @@ final class Contributor_Desk_Plugin {
 
 		Contributor_Desk_Settings::instance();
 		Contributor_Desk_Roles::instance();
+		Contributor_Desk_Applications::instance();
+		Contributor_Desk_Application_Form::instance();
+		Contributor_Desk_Notifications::instance();
 	}
 
 	public function load_textdomain() {

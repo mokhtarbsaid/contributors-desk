@@ -63,6 +63,10 @@ final class Contributor_Desk_Roles {
 		return '' === $label ? self::DEFAULT_LABEL : $label;
 	}
 
+	public function display_label() {
+		return translate_user_role( $this->label() );
+	}
+
 	public function capabilities() {
 		return (array) apply_filters( 'cdesk_contributor_capabilities', array( 'read' => true ) );
 	}
